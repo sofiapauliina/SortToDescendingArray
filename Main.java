@@ -16,43 +16,39 @@ public class Main {
 
     }
 
-    public static int[] getInputArray (int amountOfNumbers) {
+    public static int[] getInputArray(int amountOfNumbers) {
         int[] array = new int[amountOfNumbers];
         System.out.println("Please input " + amountOfNumbers + " numbers to be sorted");
 
-        for (int i = 0; i < array.length; i++){
+        for (int i = 0; i < array.length; i++) {
             array[i] = scanner.nextInt();
         }
 
-        for (int i = 0; i < array.length; i++) {
-        System.out.println("Inputted array element in position " + i + " is " + array[i]);
-        }
+        System.out.println("Inputted array = " + Arrays.toString(array));
 
         return array;
     }
 
-    public static int[] sortArrayToDescending (int[] array) {
+    public static int[] sortArrayToDescending(int[] array) {
         int[] descendingArray = Arrays.copyOf(array, array.length);
 
         boolean controller = true;
         int temporaryValueStored;
 
-        while (controller){
+        while (controller) {
 
             controller = false;
-            for (int i = 0; i < descendingArray.length-1; i++) {
+            for (int i = 0; i < descendingArray.length - 1; i++) {
 
-                if (descendingArray[i] < descendingArray[i+1]){
+                if (descendingArray[i] < descendingArray[i + 1]) {
                     temporaryValueStored = descendingArray[i];
-                    descendingArray[i] = descendingArray[i+1];
-                    descendingArray[i+1] = temporaryValueStored;
+                    descendingArray[i] = descendingArray[i + 1];
+                    descendingArray[i + 1] = temporaryValueStored;
                     controller = true;
                 }
             }
         }
-        for (int i = 0; i < descendingArray.length; i++) {
-            System.out.println("Sorted array element in position " + i + " is " + descendingArray[i]);
-        }
+        System.out.println("Descending array = " + Arrays.toString(descendingArray));
 
         return descendingArray;
     }
